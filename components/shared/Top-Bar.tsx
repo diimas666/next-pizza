@@ -12,7 +12,7 @@ const TopBar: FunctionComponent<Props> = ({ className }) => {
   return (
     <div
       className={cn(
-        'sticky top-0 bg-white shadow-lg shadow-black/5 z-10 pb-8',
+        'sticky top-0 bg-white shadow-lg shadow-black/5 z-10 pb-6 pt-6',
         className
       )}
     >
