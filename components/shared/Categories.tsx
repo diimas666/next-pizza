@@ -24,6 +24,7 @@ const Categories: FunctionComponent<CategoriesProps> = ({ className }) => {
     >
       {cats.map(({ name, id }, index) => (
         <a
+          href={`/#${name}`}
           key={index}
           className={cn(
             'flex items-center font-bold h-11 rounded-2xl px-5',
