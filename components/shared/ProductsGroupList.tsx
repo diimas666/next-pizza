@@ -7,10 +7,17 @@ import { cn } from '@/lib/utils';
 import ProductCard from './ProductCard';
 import React from 'react';
 import { useCategoryStore } from '@/store/category';
+interface ProductItem {
+  id: number;
+  name: string;
+  imageUrl: string;
+  items: { price: number }[];
+}
+
 interface ProductsGroupListProps {
   className?: string;
   title: string;
-  items: any[];
+  items: ProductItem[];
   listClassName?: string;
   categoryId: number;
 }
@@ -29,9 +36,10 @@ const ProductsGroupList: FunctionComponent<ProductsGroupListProps> = ({
   });
   React.useEffect(() => {
     if (intersection?.isIntersecting) {
-      setActiveCategoryId(categoryId)
+      setActiveCategoryId(categoryId);
     }
-  }, [intersection?.isIntersecting, categoryId, title]);
+  }, [intersection?.isIntersecting, categoryId, title, setActiveCategoryId]);
+
   return (
     <div className={className} id={title} ref={intersectionRef}>
       <Title text={title} size="lg" className="font-extrabold mb-5" />
